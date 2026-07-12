@@ -1,0 +1,6 @@
+release-site/public/downloads/*.apk
+release-site/public/downloads/*.aab
+release-site/public/downloads/*.idsig
+.env
+.env.*
+!.env.example

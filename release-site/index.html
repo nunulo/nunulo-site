@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Nunulo 是一个面向娃娃、小物件和外出记录的移动端项目。"
+    />
+    <title>Nunulo | Android test build</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header" aria-label="站点导航">
+      <a class="brand" href="#top" aria-label="Nunulo 首页">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Nunulo</span>
+      </a>
+      <nav class="nav-links" aria-label="页面链接">
+        <a href="#download">下载</a>
+        <a href="#status">状态</a>
+        <a href="#surfaces">入口</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">暂名 / Android 内部测试</p>
+          <h1 id="hero-title">Nunulo</h1>
+          <p class="lede">
+            给娃娃、小物件和出门照片留一个安静的记录架：照片、地点、标签和回看的地图会逐步接上真实服务。
+          </p>
+          <div class="hero-actions" id="download">
+            <a class="primary-action" href="./public/downloads/nunulo-android-latest.apk" download>
+              下载 Android APK
+            </a>
+            <span class="release-note">0.1.0 debug · 47.2 MiB · 仅用于内部测试</span>
+          </div>
+        </div>
+
+        <aside class="screen-slot" aria-label="最新界面截图待补">
+          <div class="slot-topline">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="slot-body">
+            <p>最新界面截图待补</p>
+            <span>不使用旧版本截图占位</span>
+          </div>
+        </aside>
+      </section>
+
+      <section class="status-band" id="status" aria-label="当前状态">
+        <div>
+          <span class="status-label">当前包</span>
+          <strong>自签 / debug 测试包</strong>
+        </div>
+        <div>
+          <span class="status-label">地图</span>
+          <strong>Android 端已接入原生高德 SDK</strong>
+        </div>
+        <div>
+          <span class="status-label">公开页</span>
+          <strong>只提供介绍与下载</strong>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="about-title">
+        <div class="section-heading">
+          <p class="eyebrow">Project</p>
+          <h2 id="about-title">先把日常记录做顺手</h2>
+        </div>
+        <div class="copy-grid">
+          <p>
+            第一阶段服务自己的真实使用：打开手机、选择照片、确认地点，把一次出门和一件小物件放回可回看的时间线与地图。
+          </p>
+          <p>
+            后续再把公开分享、邀请制试用、角色/IP 排名、标签聚合和轻社交拆成独立入口推进，不把后台能力塞进发布页。
+          </p>
+        </div>
+      </section>
+
+      <section class="section surfaces" id="surfaces" aria-labelledby="surfaces-title">
+        <div class="section-heading">
+          <p class="eyebrow">Surfaces</p>
+          <h2 id="surfaces-title">三个页面分开演进</h2>
+        </div>
+        <div class="surface-list">
+          <article>
+            <h3>公开发布页</h3>
+            <p>项目介绍、版本状态、Android APK 下载。</p>
+          </article>
+          <article>
+            <h3>图片登记页</h3>
+            <p>面向后续邀请或共建流程，独立于当前下载页。</p>
+          </article>
+          <article>
+            <h3>个人管理页</h3>
+            <p>内容审核、配置确认和运维入口，默认私有。</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Nunulo 正在建设中，Android 测试版本将在 GitHub Releases 提供。</span>
+      <a href="#top">回到顶部</a>
+    </footer>
+  </body>
+</html>
