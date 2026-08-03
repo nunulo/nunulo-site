@@ -7,7 +7,7 @@
       name="description"
       content="Nunulo 是一个面向娃娃、小物件和外出记录的移动端项目。"
     />
-    <title>Nunulo | Android test build</title>
+    <title>Nunulo | Android 个人测试版</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
@@ -26,28 +26,28 @@
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <p class="eyebrow">暂名 / Android 内部测试</p>
+          <p class="eyebrow">Android 个人测试版</p>
           <h1 id="hero-title">Nunulo</h1>
           <p class="lede">
-            给娃娃、小物件和出门照片留一个安静的记录架：照片、地点、标签和回看的地图会逐步接上真实服务。
+            选择照片、记录地点和标签，再从手机或网页回看、编辑和删除。当前版本已经跑通个人私密数据的完整链路。
           </p>
           <div class="hero-actions" id="download">
-            <a class="primary-action" href="./public/downloads/nunulo-android-latest.apk" download>
+            <a class="primary-action" href="./public/downloads/nunulo-android-0.1.0-debug.apk" download>
               下载 Android APK
             </a>
-            <span class="release-note">0.1.0 debug · 47.2 MiB · 仅用于内部测试</span>
+            <span class="release-note">0.1.0 debug · 54.0 MiB · 2026-08-04</span>
           </div>
+          <code class="checksum">SHA-256 7f8647738beccc03564a6e04b69b3503042f6dacdd73d728ff72fcf31ae991fd</code>
         </div>
 
-        <aside class="screen-slot" aria-label="最新界面截图待补">
+        <aside class="screen-slot" aria-label="Nunulo Android 当前地图页面截图">
           <div class="slot-topline">
             <span></span>
             <span></span>
             <span></span>
           </div>
           <div class="slot-body">
-            <p>最新界面截图待补</p>
-            <span>不使用旧版本截图占位</span>
+            <img src="./public/assets/nunulo-android-map.png" alt="Nunulo Android 模拟器地图坐标预览页面" />
           </div>
         </aside>
       </section>
@@ -55,15 +55,15 @@
       <section class="status-band" id="status" aria-label="当前状态">
         <div>
           <span class="status-label">当前包</span>
-          <strong>自签 / debug 测试包</strong>
+          <strong>com.lumokato.nunulo · debug 签名</strong>
         </div>
         <div>
           <span class="status-label">地图</span>
-          <strong>Android 端已接入原生高德 SDK</strong>
+          <strong>高德 Key 已生效；x86 模拟器使用坐标预览</strong>
         </div>
         <div>
           <span class="status-label">公开页</span>
-          <strong>只提供介绍与下载</strong>
+          <strong>提供 APK、截图和 SHA-256 校验</strong>
         </div>
       </section>
 
@@ -74,10 +74,10 @@
         </div>
         <div class="copy-grid">
           <p>
-            第一阶段服务自己的真实使用：打开手机、选择照片、确认地点，把一次出门和一件小物件放回可回看的时间线与地图。
+            当前 Android 模拟器已验证登录、照片选择、北京站定位、私密上传、展示图读取、编辑和删除；原图、展示图和缩略图对象同步创建并在删除后回收。
           </p>
           <p>
-            后续再把公开分享、邀请制试用、角色/IP 排名、标签聚合和轻社交拆成独立入口推进，不把后台能力塞进发布页。
+            Web 已作为桌面伴侣补齐会话续期、手工坐标和同一批数据的读写；Admin 用于查看存储用量、异常资产、用户、审计和邀请码。
           </p>
         </div>
       </section>
@@ -94,18 +94,18 @@
           </article>
           <article>
             <h3>图片登记页</h3>
-            <p>面向后续邀请或共建流程，独立于当前下载页。</p>
+            <p>登录后在网页选择照片、获取或手填坐标，并维护同一批个人记录。</p>
           </article>
           <article>
             <h3>个人管理页</h3>
-            <p>内容审核、配置确认和运维入口，默认私有。</p>
+            <p>查看存储用量、媒体异常、用户、审计日志和邀请码，默认私有。</p>
           </article>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <span>Nunulo 正在建设中，Android 测试版本将在 GitHub Releases 提供。</span>
+      <span>当前 APK 仅供本人测试；物理 ARM 设备上的原生高德地图和正式签名仍待验收。</span>
       <a href="#top">回到顶部</a>
     </footer>
   </body>

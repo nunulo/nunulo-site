@@ -11,6 +11,10 @@ Nunulo 公开项目介绍和 Android 发布页。
 
 ## 当前状态
 
-页面品牌已经使用 Nunulo，但正式 release keystore、包名、版本策略和可升级 APK 尚未完成。上线前必须同步更新版本号、SHA-256、发布日期和变更说明。
+页面已经使用 Nunulo，并记录当前 `0.1.0` debug 测试包、截图和 SHA-256。APK 仍是本地忽略制品，不进入 Git；发布或部署前必须从同一 Android 提交重新构建并核对页面校验值。
+
+公开站点镜像不在普通 push 时自动发布，因为仓库不保存 APK。发布时手动运行 `Container` 工作流，提供同一 Android 构建产物的 HTTPS 地址和 SHA-256；流水线会先下载并校验 APK，再发布 amd64/arm64 镜像。
+
+当前 Android 包名为 `com.lumokato.nunulo`。物理 ARM 设备上的高德原生地图和正式可升级签名尚未验收，页面不得写成已完成。
 
 部署定义与服务器验收由 `nunulo-ops` 和全局 `server-ops` 工作流负责。
