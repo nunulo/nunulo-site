@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-import argparse
-import re
 from html.parser import HTMLParser
 from pathlib import Path
 
@@ -9,9 +7,6 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SITE_ROOT = ROOT / "release-site"
 INDEX_PATH = SITE_ROOT / "index.html"
-DOWNLOADS_ROOT = SITE_ROOT / "public" / "downloads"
-
-
 class LocalReferenceParser(HTMLParser):
     def __init__(self) -> None:
         super().__init__()
@@ -24,54 +19,43 @@ class LocalReferenceParser(HTMLParser):
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--require-apk", action="store_true")
-    args = parser.parse_args()
-
     html = INDEX_PATH.read_text(encoding="utf-8")
-    checksum_files = list(DOWNLOADS_ROOT.glob("*.sha256"))
-    if len(checksum_files) != 1:
-        raise SystemExit("release site must contain exactly one SHA-256 manifest")
-    checksum_text = checksum_files[0].read_text(encoding="utf-8").strip()
-    match = re.fullmatch(r"([0-9a-f]{64})  ([A-Za-z0-9._-]+\.apk)", checksum_text)
-    if match is None:
-        raise SystemExit("invalid SHA-256 manifest format")
-    digest, apk_name = match.groups()
-    version = apk_name.removeprefix("nunulo-android-").removesuffix(".apk")
-
     required_text = [
         "Nunulo",
-        version,
-        digest,
+        "邀请制多人测试",
+        "尚未正式上线",
+        "下载 0.2.0 测试 APK",
+        "SHA-256",
+        "/app/",
+        "/admin/",
         "com.lumokato.nunulo",
-        f"./public/downloads/{apk_name}",
+        "0.2.0-test.1",
+        "https://github.com/nunulo/nunulo-android/releases/download/v0.2.0-test.1/nunulo-android.apk",
+        "https://github.com/nunulo/nunulo-android/releases/download/v0.2.0-test.1/nunulo-android.sha256",
     ]
     for value in required_text:
         if value not in html:
-            raise SystemExit(f"release metadata missing from index.html: {value}")
+            raise SystemExit(f"current status missing from index.html: {value}")
+
+    forbidden_text = ["0.1.0-personal.2", "暂无受支持 APK", "当前只把本人私人记录", "原位升级"]
+    for value in forbidden_text:
+        if value in html:
+            raise SystemExit(f"obsolete release claim remains in index.html: {value}")
 
     reference_parser = LocalReferenceParser()
     reference_parser.feed(html)
     for reference in reference_parser.references:
-        if reference.startswith(("#", "http://", "https://", "mailto:")):
+        if reference.startswith(("#", "/", "http://", "https://", "mailto:")):
             continue
         target = (SITE_ROOT / reference).resolve()
-        if target.suffix == ".apk" and not args.require_apk:
-            continue
         if not target.is_file():
             raise SystemExit(f"missing local release-site reference: {reference}")
 
-    apk_path = DOWNLOADS_ROOT / apk_name
-    if args.require_apk:
-        import hashlib
+    stale_artifacts = [*SITE_ROOT.rglob("*.apk"), *SITE_ROOT.rglob("*.sha256")]
+    if stale_artifacts:
+        raise SystemExit(f"obsolete release artifacts remain: {', '.join(str(path) for path in stale_artifacts)}")
 
-        if not apk_path.is_file():
-            raise SystemExit(f"missing release APK: {apk_name}")
-        actual = hashlib.sha256(apk_path.read_bytes()).hexdigest()
-        if actual != digest:
-            raise SystemExit(f"APK SHA-256 mismatch: expected {digest}, got {actual}")
-
-    print(f"release site verified: {version}")
+    print("multi-user trial release site verified")
 
 
 if __name__ == "__main__":

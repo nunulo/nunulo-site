@@ -3,110 +3,76 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Nunulo 是一个面向娃娃、小物件和外出记录的移动端项目。"
-    />
-    <title>Nunulo | Android 个人测试版</title>
+    <meta name="description" content="Nunulo 是一个邀请制多人照片地图，支持共同记录、关注互动、合集与个人数据管理。" />
+    <title>Nunulo | 邀请制照片地图测试</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <header class="site-header" aria-label="站点导航">
-      <a class="brand" href="#top" aria-label="Nunulo 首页">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <span>Nunulo</span>
-      </a>
-      <nav class="nav-links" aria-label="页面链接">
-        <a href="#download">下载</a>
-        <a href="#status">状态</a>
-        <a href="#surfaces">入口</a>
-      </nav>
+      <a class="brand" href="#top" aria-label="Nunulo 首页"><span class="brand-mark" aria-hidden="true"></span><span>Nunulo</span></a>
+      <nav class="nav-links" aria-label="页面链接"><a href="#features">功能</a><a href="#download">Android</a><a href="/app/">进入 Web</a></nav>
     </header>
 
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <p class="eyebrow">Android 个人签名测试版</p>
-          <h1 id="hero-title">Nunulo</h1>
-          <p class="lede">
-            选择照片、记录地点和标签，再从手机或网页回看、编辑和删除。当前版本已经跑通个人私密数据的完整链路。
-          </p>
-          <div class="hero-actions" id="download">
-            <a class="primary-action" href="./public/downloads/nunulo-android-0.1.0-personal.2.apk" download>
-              下载 Android APK
-            </a>
-            <span class="release-note">0.1.0-personal.2 · 47.6 MiB · 2026-08-04</span>
-          </div>
-          <code class="checksum">SHA-256 a20ee1750735afe00ac801685e033d2805d5a8db31a34f67275e44644e7748f3</code>
+          <p class="eyebrow">Invite-only photo circle</p>
+          <h1 id="hero-title">照片不只属于相册，<br />也属于当时的人和地点。</h1>
+          <p class="lede">Nunulo 把照片、位置、关注关系和评论放在同一条记录里。当前开放邀请制多人测试，重点验证真实账号、权限隔离、共同记录、数据管理和 Android 使用体验。</p>
+          <div class="hero-actions"><a class="primary-action" href="/app/">进入测试 Web</a><a class="secondary-action" href="#download">安装 Android</a></div>
+          <p class="release-note">尚未正式上线 · 测试数据按可丢弃环境管理 · 不承诺历史测试版本升级兼容</p>
         </div>
-
-        <aside class="screen-slot" aria-label="Nunulo Android 当前地图页面截图">
-          <div class="slot-topline">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <div class="slot-body">
-            <img src="./public/assets/nunulo-android-map.png" alt="Nunulo Android 模拟器地图坐标预览页面" />
-          </div>
+        <aside class="screen-slot" aria-label="Nunulo 当前测试范围">
+          <div class="slot-topline"><span></span><span></span><span></span></div>
+          <div class="photo-orbit"><span>PRIVATE</span><span>FOLLOWERS</span><span>PUBLIC</span><strong>PHOTO<br />CIRCLE</strong></div>
+          <div class="slot-body"><p>当前测试基线</p><span>邀请注册、多人动态、关注互动、通知、合集、导出与治理</span></div>
         </aside>
       </section>
 
-      <section class="status-band" id="status" aria-label="当前状态">
-        <div>
-          <span class="status-label">当前包</span>
-          <strong>com.lumokato.nunulo · 个人稳定签名 · versionCode 2</strong>
-        </div>
-        <div>
-          <span class="status-label">地图</span>
-          <strong>高德 Android Key 已绑定当前签名；x86 模拟器使用坐标预览</strong>
-        </div>
-        <div>
-          <span class="status-label">公开页</span>
-          <strong>提供 APK、截图和 SHA-256 校验</strong>
+      <section class="status-band" aria-label="当前状态">
+        <div><span class="status-label">产品阶段</span><strong>邀请制多人测试，尚未正式上线</strong></div>
+        <div><span class="status-label">Web 入口</span><strong><a href="/app/">用户工作台 /app/</a></strong></div>
+        <div><span class="status-label">管理入口</span><strong><a href="/admin/">管理员后台 /admin/</a></strong></div>
+      </section>
+
+      <section class="section" id="features" aria-labelledby="features-title">
+        <div class="section-heading"><p class="eyebrow">Trial scope</p><h2 id="features-title">多人测试要验证的，不只是页面能打开</h2></div>
+        <div class="surface-list feature-list">
+          <article><span>01</span><h3>三档可见范围</h3><p>照片可设为仅自己、关注者或所有测试成员可见；非本人位置会降低精度。</p></article>
+          <article><span>02</span><h3>共同动态与互动</h3><p>发现测试成员、关注、点赞、评论、接收通知，并可屏蔽不希望继续互动的人。</p></article>
+          <article><span>03</span><h3>个人数据可带走</h3><p>按合集整理照片，查看存储额度，生成包含记录与原图的个人数据导出。</p></article>
+          <article><span>04</span><h3>管理员治理</h3><p>邀请码、用户状态、角色、配额、举报处理、内容隐藏恢复和存储异常都有明确入口。</p></article>
         </div>
       </section>
 
-      <section class="section" aria-labelledby="about-title">
-        <div class="section-heading">
-          <p class="eyebrow">Project</p>
-          <h2 id="about-title">先把日常记录做顺手</h2>
-        </div>
-        <div class="copy-grid">
-          <p>
-            当前 Android 签名 release 已在模拟器从旧 debug 包原位升级并保留登录态；登录、照片选择、北京站定位、私密上传、展示图读取、编辑和删除链路均已验证。
-          </p>
-          <p>
-            Web 已作为桌面伴侣补齐会话续期、手工坐标和同一批数据的读写；Admin 用于查看存储用量、异常资产、用户、审计和邀请码。
-          </p>
+      <section class="section download-section" id="download" aria-labelledby="download-title">
+        <div class="section-heading"><p class="eyebrow">Android test build</p><h2 id="download-title">把测试版装到 Android 手机上</h2></div>
+        <div class="download-grid">
+          <div class="download-card">
+            <p class="download-kicker">GitHub Release · 固定资产名</p>
+            <h3>Nunulo Android 测试包</h3>
+            <p>当前多人测试版为 <strong>0.2.0-test.1</strong>。Release 工作流会签名并核对包名、版本和标签，再发布固定名称的 APK 与 SHA-256 文件。</p>
+            <div class="download-actions">
+              <a class="primary-action" href="https://github.com/nunulo/nunulo-android/releases/download/v0.2.0-test.1/nunulo-android.apk">下载 0.2.0 测试 APK</a>
+              <a class="secondary-action" href="https://github.com/nunulo/nunulo-android/releases/download/v0.2.0-test.1/nunulo-android.sha256">下载 SHA-256</a>
+            </div>
+            <code>com.lumokato.nunulo</code>
+          </div>
+          <ol class="install-steps">
+            <li><span>1</span><div><strong>先下载 APK 与 SHA-256</strong><p>校验文件用于确认 APK 在下载过程中没有损坏或被替换。</p></div></li>
+            <li><span>2</span><div><strong>允许浏览器安装未知应用</strong><p>Android 会在首次侧载时要求对当前浏览器或文件管理器单独授权。</p></div></li>
+            <li><span>3</span><div><strong>安装后使用邀请账号登录</strong><p>当前不开放匿名浏览；注册需要测试成员提供的邀请码。</p></div></li>
+            <li><span>4</span><div><strong>反馈设备与复现步骤</strong><p>请记录机型、Android 版本、网络、照片来源和出现问题的具体操作。</p></div></li>
+          </ol>
         </div>
       </section>
 
-      <section class="section surfaces" id="surfaces" aria-labelledby="surfaces-title">
-        <div class="section-heading">
-          <p class="eyebrow">Surfaces</p>
-          <h2 id="surfaces-title">三个页面分开演进</h2>
-        </div>
-        <div class="surface-list">
-          <article>
-            <h3>公开发布页</h3>
-            <p>项目介绍、版本状态、Android APK 下载。</p>
-          </article>
-          <article>
-            <h3>图片登记页</h3>
-            <p>登录后在网页选择照片、获取或手填坐标，并维护同一批个人记录。</p>
-          </article>
-          <article>
-            <h3>个人管理页</h3>
-            <p>查看存储用量、媒体异常、用户、审计日志和邀请码，默认私有。</p>
-          </article>
-        </div>
+      <section class="section boundaries" aria-labelledby="boundaries-title">
+        <div class="section-heading"><p class="eyebrow">Before joining</p><h2 id="boundaries-title">测试边界</h2></div>
+        <div class="copy-grid"><p>当前环境仍是可丢弃测试环境，不应上传唯一副本、敏感证件、工作机密或无法恢复的照片。个人导出用于辅助备份，不等于平台已经完成正式备份恢复承诺。</p><p>网页构建、APK 生成、HTTP 200 或模拟器通过都不等于正式上线。多人权限、并发上传、治理流程和物理 Android 设备仍需要按验收清单持续验证。</p></div>
       </section>
     </main>
 
-    <footer class="site-footer">
-      <span>当前 APK 仅供本人测试；物理 ARM 设备上的原生高德地图、拍照和大图仍待最终验收。</span>
-      <a href="#top">回到顶部</a>
-    </footer>
+    <footer class="site-footer"><span>Nunulo 邀请制多人测试 · 尚未正式上线</span><a href="#top">回到顶部</a></footer>
   </body>
 </html>
