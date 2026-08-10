@@ -23,21 +23,22 @@ def main() -> None:
     required_text = [
         "Nunulo",
         "邀请制注册",
-        "下载 0.2.0 APK",
+        "下载 0.2.1 APK",
         "SHA-256",
         "/app/",
         "/admin/",
         "https://github.com/Nunulo",
         "com.lumokato.nunulo",
-        "0.2.0",
-        "https://github.com/nunulo/nunulo-android/releases/download/v0.2.0/nunulo-android.apk",
-        "https://github.com/nunulo/nunulo-android/releases/download/v0.2.0/nunulo-android.sha256",
+        "0.2.1",
+        "服务与数据说明",
+        "https://github.com/nunulo/nunulo-android/releases/download/v0.2.1/nunulo-android.apk",
+        "https://github.com/nunulo/nunulo-android/releases/download/v0.2.1/nunulo-android.sha256",
     ]
     for value in required_text:
         if value not in html:
             raise SystemExit(f"current status missing from index.html: {value}")
 
-    forbidden_text = ["0.1.0-personal.2", "0.2.0-test.1", "0.2.0-test.2", "测试成员", "多人测试", "测试版", "测试包", "暂无受支持 APK", "当前只把本人私人记录", "原位升级", "尚未正式上线", "尚未公开正式发布"]
+    forbidden_text = ["0.1.0-personal.2", "0.2.0-test.1", "0.2.0-test.2", "测试成员", "多人测试", "测试版", "测试包", "测试边界", "暂无受支持 APK", "当前只把本人私人记录", "原位升级", "尚未正式上线", "尚未公开正式发布"]
     for value in forbidden_text:
         if value in html:
             raise SystemExit(f"obsolete release claim remains in index.html: {value}")
