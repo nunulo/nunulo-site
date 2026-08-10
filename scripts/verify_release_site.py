@@ -23,14 +23,14 @@ def main() -> None:
     required_text = [
         "Nunulo",
         "邀请制注册",
-        "下载 0.2.3 APK",
+        "下载 0.2.4 APK",
         "SHA-256",
         "/app/",
         "https://github.com/Nunulo",
-        "0.2.3",
+        "0.2.4",
         "服务与数据说明",
-        "https://github.com/nunulo/nunulo-android/releases/download/v0.2.3/nunulo-android.apk",
-        "https://github.com/nunulo/nunulo-android/releases/download/v0.2.3/nunulo-android.sha256",
+        "https://github.com/nunulo/nunulo-android/releases/download/v0.2.4/nunulo-android.apk",
+        "https://github.com/nunulo/nunulo-android/releases/download/v0.2.4/nunulo-android.sha256",
     ]
     for value in required_text:
         if value not in html:

@@ -11,12 +11,12 @@ Nunulo 邀请制照片地图的公开介绍与 Android 分发入口。
 
 ## 当前状态
 
-Nunulo 邀请制服务已经上线，页面提供用户 Web、GitHub Organization 和 Android `v0.2.3` 稳定版下载入口。管理后台保留给授权管理员，不再作为公开站点导航项；物理 Android 仍需持续回归。
+Nunulo 邀请制服务已经上线，页面提供用户 Web、GitHub Organization 和 Android `v0.2.4` 稳定版下载入口。管理后台保留给授权管理员，不再作为公开站点导航项；物理 Android 仍需持续回归。
 
 `Container` 工作流只构建当前静态站点，并使用提交 SHA 作为唯一镜像标签。构建镜像本身不表示页面已部署；是否在线仍需核对实际 Compose、容器与外部入口。
 
 `python scripts/verify_release_site.py` 会核对本地引用、Web 入口、固定 APK/SHA-256 下载地址，并阻止旧私人版文案、内部验收文案和历史版本号重新进入当前页面。
 
-当前页面固定指向稳定版 `v0.2.3`；只有对应 Release 资产实际存在后才算下载入口可用。稳定版不承担早期测试 APK 的原位升级兼容。
+当前页面固定指向稳定版 `v0.2.4`；只有对应 Release 资产实际存在后才算下载入口可用。稳定版不承担早期测试 APK 的原位升级兼容。
 
 部署定义与服务器验收由 `nunulo-ops` 和全局 `server-ops` 工作流负责。
