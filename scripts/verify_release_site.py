@@ -7,6 +7,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SITE_ROOT = ROOT / "release-site"
 INDEX_PATH = SITE_ROOT / "index.html"
+PRIVACY_PATH = SITE_ROOT / "privacy" / "index.html"
+TERMS_PATH = SITE_ROOT / "terms" / "index.html"
 class LocalReferenceParser(HTMLParser):
     def __init__(self) -> None:
         super().__init__()
@@ -22,15 +24,17 @@ def main() -> None:
     html = INDEX_PATH.read_text(encoding="utf-8")
     required_text = [
         "Nunulo",
-        "邀请制注册",
-        "下载 0.2.4 APK",
+        "公开注册",
+        "匿名只读展示",
+        "下载 0.2.5 APK",
         "SHA-256",
         "/app/",
         "https://github.com/Nunulo",
-        "0.2.4",
-        "服务与数据说明",
-        "https://github.com/nunulo/nunulo-android/releases/download/v0.2.4/nunulo-android.apk",
-        "https://github.com/nunulo/nunulo-android/releases/download/v0.2.4/nunulo-android.sha256",
+        "0.2.5",
+        "/privacy/",
+        "/terms/",
+        "https://github.com/nunulo/nunulo-android/releases/download/v0.2.5/nunulo-android.apk",
+        "https://github.com/nunulo/nunulo-android/releases/download/v0.2.5/nunulo-android.sha256",
     ]
     for value in required_text:
         if value not in html:
@@ -40,6 +44,17 @@ def main() -> None:
     for value in forbidden_text:
         if value in html:
             raise SystemExit(f"obsolete release claim remains in index.html: {value}")
+
+    policy_text = PRIVACY_PATH.read_text(encoding="utf-8") + TERMS_PATH.read_text(encoding="utf-8")
+    for value in (
+        "版本 2026-08-11",
+        "最长保留一年",
+        "互联网匿名展示",
+        "GitHub 私密报告入口",
+        "https://github.com/nunulo/nunulo-site/security/advisories/new",
+    ):
+        if value not in policy_text:
+            raise SystemExit(f"policy pages missing required boundary: {value}")
 
     reference_parser = LocalReferenceParser()
     reference_parser.feed(html)
